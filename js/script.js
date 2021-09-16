@@ -21,6 +21,18 @@ $(document).ready(function(){
         .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
         .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
     });
+
+    function toggleTabItem(item){
+      $(item).each(function(i){
+        $(this).on('click', function(e){
+          e.preventDefault();
+          $('.catalog__first-screen').eq(i).toggleClass('catalog__first-screen_active');
+          $('.catalog__second-screen').eq(i).toggleClass('catalog__second-screen_active');
+        })
+      });
+    };
+    toggleTabItem('.catalog__descr-link');
+    toggleTabItem('.catalog__descr-link-back');
 });
 
 
