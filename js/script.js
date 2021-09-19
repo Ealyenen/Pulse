@@ -33,6 +33,25 @@ $(document).ready(function(){
     };
     toggleTabItem('.catalog__descr-link');
     toggleTabItem('.catalog__descr-link-back');
+
+
+    //modal windows
+
+$('[data-modal=consultation]').on('click', function(){
+  $('.overlay, #consultation').fadeIn('0.5s');
+});
+$('.modal__close').on('click', function(){
+  $('.overlay, #consultation, #done').fadeOut('0.5s')
+  });
+
+  
+$('.catalog__btn').each(function(i){
+  $(this).on('click', function(){
+      $('#order .modal__subtitle').text($('.catalog__title').eq(i).text());
+      $('.overlay, #order').fadeIn('0.5s');
+  });
+});
+
 });
 
 
