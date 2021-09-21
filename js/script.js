@@ -52,7 +52,39 @@ $('.catalog__btn').each(function(i){
   });
 });
 
+function validform(form){
+  $(form).validate({
+    errorClass: "error",
+    rules:{
+      name: {
+        required: true,
+        minlength: 5
+      },
+      tel: 'required',
+      email: {
+        required: true,
+        email: true
+        }
+      },
+      messages: {
+        name: {
+          required: "введите имя",
+          minlength: jQuery.validator.format("минимум {0} символов требуется")
+        },
+        tel: "пожалуйста введите свой номертелефон",
+        email: {
+          required: "пожалуйста, введите свою почту",
+          email: "Неправельно введен адрес почты"
+          }
+        }
 });
+}
+validform('#cons-form')
+validform('#consultation form')
+validform('#order form')
 
 
+$('input[name=tel]').mask("+7 (999) 999 99-99");
 
+
+});
