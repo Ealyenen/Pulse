@@ -86,5 +86,19 @@ validform('#order form')
 
 $('input[name=tel]').mask("+7 (999) 999 99-99");
 
+$('form').submit(function(e) {
+  e.preventDefault();
+  $.ajax({
+    type: "Post",
+    url: "mailer/smart.php",
+    data: $(this).serialize()
+  }).done(function(){
+      $(this).find("input").val("");
+      $('#consultation, #order').fadeOut();
+      $('.overlay, #done').fadeIn('slow');
+      $('form').trigger('reset');
+  });
+  return false;
+});
 
 });
