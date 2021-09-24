@@ -101,4 +101,20 @@ $('form').submit(function(e) {
   return false;
 });
 
+
+  //scroll up
+
+  $(window).scroll(function(){
+      if ($(this).scrollTop()>800){
+        $('.top-icon').fadeIn();
+      } else {
+        $('.top-icon').fadeOut();
+      }
+  });
+  $("a[href='#up']").click(function(){
+    var _href = $(this).attr("href");
+    $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+    return false;
+  });
+
 });
