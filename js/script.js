@@ -90,7 +90,7 @@ $('form').submit(function(e) {
   e.preventDefault();
   $.ajax({
     type: "Post",
-    url: "mailer/smart.php",
+    url: "http://mosjurcollegia.ru/slava/mailer/smart.php",
     data: $(this).serialize()
   }).done(function(){
       $(this).find("input").val("");
